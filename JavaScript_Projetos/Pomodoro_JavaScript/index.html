@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>PomoBreak</title>
+    </head>
+    <body>
+        <header>
+            <a href="#"><h1 id="logo">PomoBreak</h1></a>
+            <button>Setting</button>
+        </header>
+        <div id="container">
+            <p id="work" class="label">Work:</p><p id="break" class="label">Break:</p><p id="cycles" class="label">Cycles:</p>
+            <!--Work Timer-->
+            <div id="work-timer" class="timer">
+               <p id="w_minutes">30</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+            </div>
+
+            <p id="counter" class="timer">o</p>
+
+            <!--Break Timer-->
+            <div id="break-timer" class="timer">
+                <p id="b_minutes">30</p><p class="semicolon">:</p><p id="b_seconds">00</p>
+             </div>
+
+             <button id="start" class="btn">Start</button>
+             <button id="stop" class="btn">Pause</button>
+             <button id="reset" class="btn">Reset</button>
+
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
