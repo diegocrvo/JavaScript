@@ -1,12 +1,39 @@
 var start = document.getElementById('start');
-// var stop = document.getElementById('stop');
 var reset = document.getElementById('reset');
 
 var wm = document.getElementById('w_minutes');
 var ws = document.getElementById('w_seconds');
 
-var bm = document.getElementById('b_minutes');
-var bs = document.getElementById('b_seconds');
+var btnOptions = document.getElementsByClassName('btnOptions')
+btnOptions[0].style.background = '#744ab8'
+
+var modo = 'work'
+
+// -(x)quando muda de aba com o relogio correndo não reseta o botão start.
+//     -( )o botão start reseta o texto, porem sua função 'continua no pause'.
+// -(x)quando dar start em uma aba e vai para outra não reseta o relogio.
+// -(x)clicando em resete na aba break o relogio recebe 30 e não 5.
+    
+
+btnOptions[0].addEventListener('click', function(){
+    btnOptions[0].style.background = '#744ab8'
+    btnOptions[1].style.background = 'transparent'
+    wm.innerText = 30;
+    ws.innerText = "00";
+    modo = 'work'
+    start.innerText = 'START'
+    stopInterval()
+})
+
+btnOptions[1].addEventListener('click', function(){
+    btnOptions[1].style.background = '#744ab8'
+    btnOptions[0].style.background = 'transparent'
+    wm.innerText = 5;
+    ws.innerText = "00";
+    modo = 'break'
+    start.innerText = 'START'
+    stopInterval()
+})
 
 //store a reference to a timer variable
 var startTimer;
@@ -14,31 +41,27 @@ var startTimer;
 start.addEventListener('click', function(){
     if(startTimer === undefined){
         startTimer = setInterval(timer, 1000)
-        start.innerText = 'Pause'
+        start.innerText = 'PAUSE'
     } else {
         stopInterval()
         startTimer = undefined;
-        start.innerText = 'Start'
+        start.innerText = 'START'
     }
 })
 
 reset.addEventListener('click', function(){
-    wm.innerText = 30;
-    ws.innerText = "00";
-
-    bm.innerText = 5;
-    bs.innerText = "00";
-
-    // document.getElementById('counter').innerText = 0;
+    if(modo == 'work'){
+        wm.innerText = 30;
+        ws.innerText = "00";
+    } else if(modo == 'break'){
+        wm.innerText = 5;
+        ws.innerText = "00";
+    }
     stopInterval()
     startTimer = undefined;
+    start.innerText = 'START'
 
 })
-
-// stop.addEventListener('click', function(){
-//     stopInterval()
-//     startTimer = undefined;
-// })
 
 //Start Timer Function
 function timer(){
@@ -50,30 +73,21 @@ function timer(){
         wm.innerText--;
     }
 
-    //Break Timer Countdown
-    if(wm.innerText == 0 && ws.innerText == 0){
-        if(bs.innerText != 0){
-            bs.innerText--;
-        } else if(bm.innerText != 0 && bs.innerText == 0){
-            bs.innerText = 59;
-            bm.innerText--;
-        }
-    }
-
     //Increment Counter by one if one full cycle is completed
-    if(wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0){
-        wm.innerText = 30;
-        ws.innerText = "00";
-
-        bm.innerText = 5;
-        bs.innerText = "00";
-
-        document.getElementById('counter').innerText++;
+    if(wm.innerText == 0 && ws.innerText == 0){
+        if(modo == 'work'){
+            wm.innerText = 30;
+            ws.innerText = "00";
+        } else if(modo == 'break'){
+            wm.innerText = 5;
+            ws.innerText = "00";
+        }
+        stopInterval()
     }
-
 }
 
 //Stop Timer Function
 function stopInterval(){
     clearInterval(startTimer);
 }
+

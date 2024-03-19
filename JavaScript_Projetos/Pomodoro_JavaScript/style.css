@@ -1,14 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-}
-
-body {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+    font-family: Poppins, sans-serif, Arial, Helvetica;
 }
 
 html {
@@ -17,11 +14,11 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* h1 {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-} */
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
 
 header {
     display: flex;
@@ -29,7 +26,6 @@ header {
     justify-content: space-between;
     width: 600px;
     margin: auto;
-    margin-bottom: 15px;
     border-bottom: 1px solid black;
     padding: 15px;
 }
@@ -47,51 +43,44 @@ header button {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
     color: white;
-    font-weight: 700;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 #container {
     position: absolute;
-    top: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 20px;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 200px;
+    height: 300px;
     width: 500px;
     background-color: rgba(255, 255, 255, 0.5);
     margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 5px 5px rgba(31, 1, 80, 0.26);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+}
+
+#TimerOptions {
+    display: flex;
+    gap: 80px;
 }
 
 /*timers*/
-.label {
-    align-self: center;
-    justify-self: center;
-
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#work {
-    grid-area: 1 / 2 / 1 / 2;
-}
-#break {
-    grid-area: 1 / 4 / 1 / 4;
-}
-/* #cycles {
-    grid-area: 1 / 3 / 1 / 3;
-} */
-
-.timer {
+#work-timer {
     display: flex;
     align-self: center;
     justify-self: center;
-
-    font-size: 30px;
+    font-size: 1.8em;
     font-weight: bold;
+}
+
+#work-timer p {
+    font-size: 4em;
 }
 
 p {
@@ -100,40 +89,29 @@ p {
     padding: 0;
 }
 
-#counter {
-    grid-area: 2 / 3 / 2 / 3;
-    color: white;
-}
-
-#work-timer {
-    grid-area: 2 / 2 / 2 / 2;
-}
-
-#break-timer {
-    grid-area: 2 / 4 / 2 / 4;
-}
-
 /*buttons*/
 
 .btn {
     align-self: center;
     justify-self: center;
-    
-
-    width: 100px;
-    height: 30px;
-
-    font-size: 20px;
+    width: 180px;
+    height: 55px;
+    font-size: 2em;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    margin: 0 8px;
+    color: #744ab8;
+    cursor: pointer;
 }
 
-#start {
-    grid-area: 3 / 2 / 3 / 2;
+.btnOptions {
+    background-color: transparent;
+    border: none;
+    padding: 5px 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
-
-#reset {
-    grid-area: 3 / 4 / 3 / 4;
-}
-
-/* #stop {
-    grid-area: 3 / 4 / 3 / 4;
-} */
