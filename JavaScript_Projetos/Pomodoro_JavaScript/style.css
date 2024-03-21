@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: Poppins, sans-serif, Arial, Helvetica;
+    font-family: Sans-serif, Arial, Helvetica;
 }
 
 html {
@@ -73,14 +73,16 @@ header button {
 /*timers*/
 #work-timer {
     display: flex;
-    align-self: center;
-    justify-self: center;
-    font-size: 1.8em;
+    align-content: center;
+    justify-content: center;
+    font-size: 30px;
     font-weight: bold;
+    width: 100%;
 }
 
 #work-timer p {
     font-size: 4em;
+    letter-spacing: 7px;
 }
 
 p {
