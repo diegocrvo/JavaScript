@@ -7,12 +7,15 @@ var ws = document.getElementById('w_seconds')
 var body = document.body
 var btn = document.getElementsByClassName('btn')
 
+var startTimer
+
 var btnOptions = document.getElementsByClassName('btnOptions')
 btnOptions[0].style.background = '#5a189a'
 
 var modo = 'work'
 
 btnOptions[0].addEventListener('click', function(){
+    start.classList.remove('btnPress')
     btnOptions[0].style.background = '#5a189a'
     btnOptions[1].style.background = 'transparent'
     wm.innerText = 30
@@ -27,6 +30,7 @@ btnOptions[0].addEventListener('click', function(){
 })
 
 btnOptions[1].addEventListener('click', function(){
+    start.classList.remove('btnPress')
     btnOptions[1].style.background = '#ff8500'
     btnOptions[0].style.background = 'transparent'
     wm.innerText = "05"
@@ -40,14 +44,11 @@ btnOptions[1].addEventListener('click', function(){
     btn[1].style.color = '#ff8500'
 })
 
-//store a reference to a timer variable
-var startTimer
-
 start.addEventListener('click', function(){
+    start.classList.toggle('btnPress')
     if(startTimer === undefined){
         startTimer = setInterval(timer, 1000)
         start.innerText = 'PAUSE'
-        start.classList.add('btnCheked')
     } else {
         stopInterval()
         startTimer = undefined
@@ -57,6 +58,7 @@ start.addEventListener('click', function(){
 })
 
 reset.addEventListener('click', function(){
+    start.classList.remove('btnPress')
     if(modo == 'work'){
         wm.innerText = 30
         ws.innerText = "00"
@@ -88,7 +90,6 @@ function timer(){
         }
     }
 
-    //Increment Counter by one if one full cycle is completed
     if(wm.innerText == 0 && ws.innerText == 0){
         if(modo == 'work'){
             wm.innerText = 30
@@ -101,7 +102,6 @@ function timer(){
     }
 }
 
-//Stop Timer Function
 function stopInterval(){
     clearInterval(startTimer)
 }

@@ -13,12 +13,23 @@ html {
 
 body {
     background-color: #5a189a;
-    position: relative;
+    width: 100vw;
+    height: 100vh;
+    transition: background-color 1s;
+}
+
+body > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
 }
 
 header {
+    position: absolute;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,19 +57,15 @@ header button {
 }
 
 #container {
-    position: absolute;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     padding: 20px;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     height: 300px;
     width: 500px;
     background-color: rgba(255, 255, 255, 0.5);
-    margin: 0 auto;
+    margin: 100px auto;
     border-radius: 15px;
     box-shadow: 0 5px 5px rgba(31, 1, 80, 0.26);
 }
@@ -106,7 +113,12 @@ p {
     cursor: pointer;
 }
 
-.btnCheked {
+.btnPress {
+    box-shadow: 0 0 0;
+    transform: translateY(5px);
+}
+
+.btnCheck:active {
     box-shadow: 0 0 0;
     transform: translateY(5px);
 }
