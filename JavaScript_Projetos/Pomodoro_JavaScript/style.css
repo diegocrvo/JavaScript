@@ -56,6 +56,46 @@ header button {
     cursor: pointer;
 }
 
+.modalWindow {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal {
+    position: relative;
+    width: 400px;
+    height: 800px;
+    background-color: rgba(255, 255, 255, 0.548);
+    padding: 50px;
+    border-radius: 15px;
+}
+
+.btnClose {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 2px;
+    right: 5px;
+    font-size: 1.5em;
+    border: none;
+    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.modalWindow.open {
+    display: flex;
+}
+
 #container {
     display: flex;
     align-items: center;
@@ -132,4 +172,19 @@ p {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+}
+
+@keyframes openModal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, -5px);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.open .modal {
+    animation: openModal 0.5s ease-in-out;
 }

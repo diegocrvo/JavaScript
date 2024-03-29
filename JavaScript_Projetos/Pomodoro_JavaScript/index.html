@@ -10,25 +10,42 @@
         <div>
             <header>
                 <a href="#"><h1 id="logo">PomoBreak</h1></a>
-                <button>Setting</button>
+                <button onclick="openModal()">Setting</button>
             </header>
             <div id="container">
                 <div id="TimerOptions">
                     <button id="work" class="btnOptions">Work</button>
                     <button id="break" class="btnOptions">Break</button>
                 </div>
-    
+                
                 <div id="work-timer" class="timer">
-                   <p id="w_minutes">30</p><p class="semicolon">:</p><p id="w_seconds">00</p>
+                    <p id="w_minutes">30</p><p class="semicolon">:</p><p id="w_seconds">00</p>
                 </div>
-    
+                
                 <div id="TimerButtons">
                     <button id="start" class="btn">START</button>
                     <button id="reset" class="btn btnCheck">RESET</button>
                 </div>
             </div>
         </div>
-
+        <div id="modalWindow" class="modalWindow">
+            <div class="modal">
+                <button id="btnClose" class="btnClose">✖</button>
+                <h1>Settings</h1>
+            </div>
+        </div>
         <script src="main.js"></script>
+        <script>
+            function openModal() {
+                const modal = document.getElementById('modalWindow')
+                modal.classList.add('open')
+
+                modal.addEventListener('click', (e) => {
+                    if(e.target.id == 'btnClose' || e.target.id == 'modalWindow'){
+                        modal.classList.remove('open')
+                    }
+                })
+            }
+        </script>
     </body>
 </html>
