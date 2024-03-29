@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito, Sans-serif, Arial, Helvetica;
+}
+
+.modalWindow {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    padding: 0 20px;
+    border-radius: 15px;
+}
+
+.modal > h2 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #adb5bd;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 13px 0;
+    border-bottom: 1px solid #adb5bd9c;
+}
+
+.modal > h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #adb5bd;
+    text-align: start;
+    margin: 15px 0;
+}
+
+#timeConfig {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 35px;
+}
+
+.inputArea > label {
+    font-size: 1em;
+    font-weight: 500;
+    color: #adb5bd;
+}
+
+.inputArea > input {
+    padding: 10px;
+    width: 100px;
+    text-align: start;
+
+}
+
+.modal p{
+    font-size: 0.9em;
+    font-weight: bolder;
+    color: #463f3a;
+    margin-bottom: 15px;
+}
+
+#timeConfig .inputArea {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btnClose {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 2px;
+    right: 5px;
+    font-size: 1.5em;
+    border: none;
+    background: transparent;
+    color: #adb5bd;
+    cursor: pointer;
+}
+
+.modalWindow.open {
+    display: flex;
+}
+
+.open .modal {
+    animation: openModal 0.5s ease-in-out;
+}
+
+@keyframes openModal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, -5px);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
